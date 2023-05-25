@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if title %}
+            <title>{{ title }} - WriteOff</title>
+        {% else %}
+            <title>WriteOff</title>
+        {% endif %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('index') }}">Home</a>
+            <div class="navbar-right">
+                <a href="{{ url_for('login') }}">Log In</a>
+                <a id='link-block' href="{{ url_for('register') }}">Sign Up</a>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <span id="error">{{ message }}</span>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

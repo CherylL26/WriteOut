@@ -1,0 +1,24 @@
+{% extends "loggedinbase.html" %}
+{% block content %}
+    <h1>Welcome, {{ current_user.username }}</h1>
+    <div id="universes-list">
+        {% for universe in universes %}
+            <div id="universe-info">
+                <h1>{{ universe.name }}</h1>
+                <p>{{ universe.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <form id="new-universe" action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=64) }}<br>
+        </p>
+        {{ form.submit() }}
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "loggedoutbase.html" %}
+{% block content %}
+<div class="content">
+    <div id="title-screen">
+        <image id="title-image" src="{{ url_for('static', filename='book.jpg') }}"></image>
+        <div id="title-text">
+            <h1>WriteOut</h1>
+            <div id="caption" >A home for all your stories.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

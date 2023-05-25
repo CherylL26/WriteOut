@@ -1,0 +1,10 @@
+{% extends "loggedinbase.html" %}
+{% block content %}
+<script src="{{ url_for('static', filename='game.js') }}"></script>
+<div class="sidebar" id='opponents'></div>
+<div class="dark-document" id="game-document">
+    <textarea id="user-input" onkeyup="getCount(this.value)" type="text
+" placeholder="Start typing..."></textarea>
+    <progress id="user-progress" value="0" max="200"></progress>
+</div>
+{% endblock %}
